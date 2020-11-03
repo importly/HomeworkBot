@@ -10,8 +10,9 @@ module.exports = {
 
     for (var i in data) {
         console.log(i);
-        send.addField(i,"Data due: " + data[i].date + " " + "Description: " + data[i].desc);
+        send.addField(i,"Due date: " + data[i].date + " " + " Description: " + data[i].desc);
     }
+
     message.channel.send(send);
     }
 }

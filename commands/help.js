@@ -10,7 +10,7 @@ module.exports = {
                     "value": "Lists the homework for today"
                   },
                   {
-                    "name": ".add <homework name> <due date mm/dd/yyyy> <description>",
+                    "name": ".add <homework name>, <due date mm/dd/yyyy>, <description>",
                     "value": "Add homework"
                   },
                   {
