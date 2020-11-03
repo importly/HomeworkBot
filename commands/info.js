@@ -1,0 +1,15 @@
+const Discord = require('discord.js');
+var fs = require('fs');
+var path = require('path');
+
+module.exports = {
+    run: async(message, args, client) => {
+    var data = require("../homeworkData.json")
+
+    if (data[args[0]]) {
+        const send = new Discord.MessageEmbed().setTitle(args[0]).addField(data[args[0]].date,data[args[0]].desc)
+        message.channel.send(send)
+    }
+    //message.channel.send(JSON.stringify(data))
+    }
+}
