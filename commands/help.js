@@ -1,3 +1,5 @@
+/*jshint esversion: 8 */
+
 module.exports = {
     run: async(message, args, client) => {
         message.channel.send({
@@ -24,6 +26,6 @@ module.exports = {
                 ]
               }
           }
-        )
+        );
     }
-}
+};

@@ -1,3 +1,5 @@
+/*jshint esversion: 8 */
+
 module.exports = {
     run: async(message, args, client) => {
         /*
@@ -8,4 +10,4 @@ module.exports = {
         */
         message.channel.send(`Latency is ${Date.now() - message.createdTimestamp}ms. API Latency is ${(client.ws.ping)}ms`);
     }
-}
+};

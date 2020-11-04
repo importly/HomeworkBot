@@ -1,3 +1,5 @@
+/*jshint esversion: 8 */
+
 const Discord = require('discord.js');
 var fs = require('fs');
 var path = require('path');
@@ -9,12 +11,12 @@ fs.readdir("./commands", (err, files) => {
     if (err) {
         console.error("Could not list the directory.", err);
         process.exit(1);
-    };
+    }
     files.forEach( (file, index) => {
         console.log(file,index);
         commands[file.replace(".js","")] = require("./commands/" + file);
-    })
-})
+    });
+});
 
 
 client.once('ready', () => {
@@ -31,6 +33,6 @@ client.on('message', message => {
             commands[command].run(message,args,client);
         }
     }
-})
+});
 
 client.login(config.key);

@@ -1,6 +1,7 @@
 /*jshint esversion: 8 */
+
 module.exports = {
     run: async(message, args, client) => {
-        message.channel.send(`Date is ${new Date().toISOString().slice(0,10)}`);
+		client.user.setActivity(args[1], { type: args[0]});
     }
 };

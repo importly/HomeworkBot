@@ -1,3 +1,5 @@
+/*jshint esversion: 8 */
+
 const Discord = require('discord.js');
 var fs = require('fs');
 var path = require('path');
@@ -15,4 +17,4 @@ module.exports = {
 
     message.channel.send(send);
     }
-}
+};
