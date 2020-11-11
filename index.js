@@ -4,7 +4,8 @@ const Discord = require('discord.js');
 var fs = require('fs');
 var path = require('path');
 const config = require('./config.json');
-const client = new Discord.Client();
+const Client = require('./client/Client');
+const client = new Client();
 var commands = {};
 
 fs.readdir("./commands", (err, files) => {
@@ -35,4 +36,4 @@ client.on('message', message => {
     }
 });
 
-client.login(config.key);
+client.login(config.key); 

@@ -12,6 +12,8 @@ module.exports = {
 
     if (data[args[0]]) {
         delete data[args[0]];
+    } else {
+        return message.channel.send(new Discord.MessageEmbed().setTitle('Homework not found'));
     }
 
     fs.writeFile('homeworkData.json', JSON.stringify(data), (err) => {
