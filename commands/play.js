@@ -1,13 +1,13 @@
 /*jshint esversion: 8 */
-// TODO: Need to work on stop and skip
+// TODO: Need to work on skip
 const Discord = require("discord.js");
-var fs = require("fs");
-var path = require("path");
+let fs = require("fs");
+let path = require("path");
 const ytdl = require("ytdl-core");
 const apikey = require("../config.json");
-var search = require("youtube-search");
+let search = require("youtube-search");
 
-var opts = {
+let opts = {
   maxResults: 10,
   key: apikey.googleAPIkey,
 };
@@ -38,17 +38,17 @@ module.exports = {
         "Error, please enter a **search or url** following the command."
       );
     let validate = await ytdl.validateURL(args[0]);
-    var finalSearch;
+    let finalSearch;
 
     if (!validate) {
-      var searchr = await search(args[0], opts);
+      let searchr = await search(args[0], opts);
       if (searchr) {
         //finalSearch = searchr.results[0].link;
         if (searchr.results.length == 0) {
           message.channel.send("No search results found");
           return;
         }
-        for (var i in searchr.results) {
+        for (let i in searchr.results) {
           if (searchr.results[i].kind == "youtube#video") {
             finalSearch = searchr.results[i].link;
             break;
@@ -56,15 +56,18 @@ module.exports = {
         }
       }
     } else {
-      if (!finalSearch) finalSearch = args[0];
+      if (!finalSearch) {
+        finalSearch = args[0];
+      }
     }
 
     let info = await ytdl.getInfo(finalSearch);
+    let thumbnail = info.videoDetails.thumbnail.thumbnails[info.videoDetails.thumbnail.thumbnails.length - 1].url;
     module.exports.playSong(message, finalSearch);
     let playembed = new Discord.MessageEmbed()
       .setTitle("Now playing:")
       .setDescription(`${info.videoDetails.title}`)
-      .setImage(info.videoDetails.thumbnail.thumbnails[4].url);
+      .setImage(thumbnail);
     message.channel.send(playembed);
     console.log("Playing Song");
   },

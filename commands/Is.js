@@ -1,8 +1,7 @@
 /*jshint esversion: 8 */
 
-const file = require('./ls.js');
-
+const file = require("./ls.js");
 
 module.exports = {
-    run: file.run
+  run: file.run,
 };

@@ -1,25 +1,27 @@
 /*jshint esversion: 8 */
 
-const Discord = require('discord.js');
-var fs = require('fs');
-var path = require('path');
+const Discord = require("discord.js");
+var fs = require("fs");
+var path = require("path");
 
 module.exports = {
-    run: async(message, args, client) => {
+  run: async (message, args, client) => {
     var data = require("../homeworkData.json");
 
-    const send = new Discord.MessageEmbed().setTitle('Removed');
+    const send = new Discord.MessageEmbed().setTitle("Removed");
 
     if (data[args[0]]) {
-        delete data[args[0]];
+      delete data[args[0]];
     } else {
-        return message.channel.send(new Discord.MessageEmbed().setTitle('Homework not found'));
+      return message.channel.send(
+        new Discord.MessageEmbed().setTitle("Homework not found")
+      );
     }
 
-    fs.writeFile('homeworkData.json', JSON.stringify(data), (err) => {
-        if (err) throw err;
-        message.channel.send(send);
+    fs.writeFile("homeworkData.json", JSON.stringify(data), (err) => {
+      if (err) throw err;
+      message.channel.send(send);
     });
     //message.channel.send(JSON.stringify(data))
-    }
+  },
 };
