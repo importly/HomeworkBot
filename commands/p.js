@@ -38,6 +38,7 @@ module.exports = {
         "Error, please enter a **search or url** following the command."
       );
     let validate = await ytdl.validateURL(args[0]);
+    console.log(validate);
     let finalSearch;
 
     if (!validate) {

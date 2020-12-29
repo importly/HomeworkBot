@@ -14,16 +14,13 @@ module.exports = {
   run: async (message, args, client) => {
     let i = 0;
     let top = parseInt(args[1]);
-    let messagee = args[0];
-    let fullstring = "";
-    for (let i = 0; i <= top; i++) {
-      fullstring = fullstring + messagee + '\n';
-      if (fullstring.length >= 2000) {
-        message.channel.send(fullstring);
-        fullstring = "";
-      }
+    if (!top) {
+      return;
     }
-    message.channel.send(fullstring);
-    //module.exports.spam(message.channel,messagee,i,top);
+    if (top >= 500) {
+      return;
+    }
+    let messagee = args[0];
+    module.exports.spam(message.channel,messagee,i,top);
   },
 };
