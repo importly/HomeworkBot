@@ -17,9 +17,6 @@ module.exports = {
     if (!top) {
       return;
     }
-    if (top >= 500) {
-      return;
-    }
     let messagee = args[0];
     module.exports.spam(message.channel,messagee,i,top);
   },

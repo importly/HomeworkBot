@@ -24,6 +24,7 @@ client.once("ready", () => {
 });
 
 client.on("message", (message) => {
+  if (message.author.id == client.user.id) return;
   if (message.content.startsWith(config.prefix)) {
     const disposablemessage = message.content
       .slice(config.prefix.length)
@@ -35,6 +36,15 @@ client.on("message", (message) => {
       commands[command].run(message, args, client);
     }
   }
+});
+
+client.on("messageDelete", (message) => {
+  client.sniper.set(message.channel.id, {
+    content:message.content,
+    author:message.author.username,
+    image:message.attachments.first() ? message.attachments.first().proxyURL : null,
+  });
+  console.log(client.sniper.get(message.channel.id));
 });
 
 client.login(config.key);

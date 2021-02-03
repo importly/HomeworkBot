@@ -1,5 +1,6 @@
 /*jshint esversion: 8 */
-const { Client } = require("discord.js");
+const { Client, Collection } = require("discord.js");
+const { MAX_PACKET_SIZE } = require("opusscript");
 
 module.exports = class extends Client {
   constructor(config) {
@@ -7,5 +8,6 @@ module.exports = class extends Client {
     this.handler = {
       player: null,
     };
+    this.sniper = new Collection();
   }
 };
