@@ -15,7 +15,7 @@
     "ffmpeg-static": "^4.2.7",
     "fluent-ffmpeg": "^2.1.2",
     "googleapis": "^64.0.0",
-    "nodemon": "^2.0.6",
+    "nodemon": "^2.0.20",
     "opusscript": "^0.0.7",
     "youtube-search": "^1.1.2",
     "ytdl-core": "^4.1.4",
