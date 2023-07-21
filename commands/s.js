@@ -16,8 +16,8 @@ module.exports = {
       }
     }
     if (message.client.handler.player) {
-      message.client.handler.player.end();
-      message.client.handler.player = null;
+      client.handler.player.end();
+      client.handler.player = null;
       return message.channel.send("Stopped");
     } else {
       return message.channel.send("No, music playing");

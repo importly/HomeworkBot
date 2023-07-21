@@ -12,7 +12,7 @@ module.exports = {
         sendr.setTitle("I got you " + stuff.author);
         sendr.addField("The deleted message was", stuff.content);
         if (stuff.image) {
-            sendr.image = stuff.image;
+            message.channel.send(stuff.image);
         }
         message.channel.send(sendr);
       }else{
@@ -20,3 +20,5 @@ module.exports = {
       }
   }
 };
+
+
